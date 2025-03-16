@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Box</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+             border-radius: 6px;
+            background-color:yellow;
+            text-align: center;
+            align-content: center;
+            position: absolute; /* Important for movement */
+        }
+    </style>
+</head>
+<body>
+    <div id="box">box</div>
+
+    <script>
+        function BoxMOVE() {
+            var box = document.getElementById('box');
+
+            if (!box) return; // Ensure the box exists
+
+            var maxX = window.innerWidth - box.offsetWidth;
+            var maxY = window.innerHeight - box.offsetHeight;
+
+            box.style.left = Math.floor(Math.random() * maxX) + 'px';
+            box.style.top = Math.floor(Math.random() * maxY) + 'px';
+        }
+
+        // Move box every 1 second
+        setInterval(BoxMOVE, 1000);
+    </script>
+</body>
+</html>

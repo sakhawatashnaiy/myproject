@@ -46,16 +46,16 @@
 
           setInterval(BoxMOVE, 1000);
           
-          function rotateBox() {
-            var box = document.getElementById('box'); // Correctly selecting the element
-            if (!box) return; // Check if box exists to prevent errors
+        //   function rotateBox() {
+        //     var box = document.getElementById('box'); // Correctly selecting the element
+        //     if (!box) return; // Check if box exists to prevent errors
 
-            var angle = Math.random() * 360; // Generate a random angle
-            box.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`; // Correct syntax
-        }
-
+        //     var angle = Math.random() * 360; // Generate a random angle
+        //     box.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`; // Correct syntax
+        // }
+          
         // Rotate every 1 second
-        setInterval(rotateBox, 1000);
+        // setInterval(rotateBox, 1000);
                 
 
                

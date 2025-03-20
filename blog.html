@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .blog-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            background: white;
+        }
+        .blog-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+          input{
+              margin: 10px;
+          }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create a Blog Post</h2>
+        <input type="text" id="title" placeholder="Enter Heading" required>
+        <input type="text" id="description" placeholder="Enter Description" required>
+        <input type="url" id="imageUrl" placeholder="Enter Image URL" required>
+        <button onclick="addPost()">Add Post</button>
+        <div id="blogContainer"></div>
+    </div>
+
+    <script>
+        function addPost() {
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const imageUrl = document.getElementById('imageUrl').value;
+            
+            if (title && description && imageUrl) {
+                const blogContainer = document.getElementById('blogContainer');
+                const blogCard = document.createElement('div');
+                blogCard.className = 'blog-card';
+                blogCard.innerHTML = `
+                    <img src="${imageUrl}" alt="Blog Image">
+                    <h3>${title}</h3>
+                    <p>${description}</p>
+                `;
+                blogContainer.appendChild(blogCard);
+            } else {
+                alert('Please enter all fields');
+            }
+        }
+    </script>
+</body>
+</html>

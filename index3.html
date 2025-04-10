@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+            
+            .special-text{
+             background-color: red;
+         }
+         li{
+             background-color: pink;
+             padding: 10px;
+             border: 2px solid black;
+             margin: 5px;
+              width: 50%;
+              background-color: yellow;
+         }
+      </style>
+  </head>
+  <body>
+    <div>
+      <input id="input_todo" type="text" placeholder="Enter text">
+  
+      <button id="btn" onclick="addPost()">Add Todo !</button>
+  
+  
+      <div id="todo_list">
+         <ul id="todo_item">
+              
+         </ul>
+      </div>
+      
+  </div>
+  </body>
+
+         <script> 
+               function addPost(){
+                const inputElem = document.getElementById('input_todo')
+                const todo_item = document.getElementById('todo_item')
+                todo_item.innerHTML += `<li>${inputElem.value}</li>`
+                inputElem.value ='';
+                 inputElem.value +='';
+               }
+                //    random color
+
+                  
+         </script>
+      
+      
+  </html>

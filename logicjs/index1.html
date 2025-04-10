@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Class-24</title>
+ 
+ 
+     <style>
+ 
+         body{
+             font-family: Arial, Helvetica, sans-serif;
+             background-color: rgb(216, 164, 9);
+         }
+         #todo_list{
+             display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            padding: 20px;
+            flex-wrap: wrap;
+         }
+ 
+         .todo_item{
+             border: 1px solid black;
+             box-shadow: 1px 1px 10px rgb(57, 75, 7);
+             padding: 20px;
+             border-radius: 10px;
+             background-color: rgb(236, 247, 11);
+             text-align: center;
+         }
+ 
+         .text{
+             font-size: 24px;
+             font-weight: normal;
+         }
+ 
+ 
+     .del_btn{
+         background-color: red;
+         color: white;
+         padding: 5px 10px;
+         border: none;
+         border-radius: 5px;
+         margin: 5px;
+     }
+ 
+     .edit_btn{
+         background-color: blue;
+         color: white;
+         padding: 5px 10px;
+         border: none;
+         border-radius: 5px;
+         margin: 5px;
+     }
+ 
+ 
+     .add_todo_btn{
+         background-color: black;
+         color: white;
+         padding: 5px 10px;
+         border: none;
+         border-radius: 5px;
+         margin: 5px;
+     }
+ 
+     input{
+         padding: 5px 10px;
+         border: none;
+         border-radius: 5px;
+         margin: 5px;
+         font-size: 14px;
+     }
+     </style>
+ 
+ <script src="app.js" defer></script>
+ 
+ </head>
+ <body>
+     <div>
+ 
+ 
+         <input id="input_todo" type="text" placeholder="Enter text">
+     
+         <button class="add_todo_btn" onclick="addTodo()" id="btn">Add Todo !</button>
+     
+     
+         <div id="todo_list">
+            <!-- <div class="todo_item">
+             <p class="text">HEllo World</p>
+ 
+             <button class="del_btn" onclick="deleteTodo()">Delete</button>
+             <button class="edit_btn"  onclick="editTodo()">Edit</button>
+            </div> -->
+ 
+           
+         </div>
+         
+     </div>
+ </body>
+
+    <script>
+            
+let idCount = 1
+
+ function addTodo() {
+     const inputElem = document.querySelector('#input_todo')
+     const todoList = document.querySelector('#todo_list')
+     // const todo_item = document.querySelector('#todo_item')
+ 
+     // const listItem = document.createElement('li')
+     // listItem.innerText = inputElem.value
+ 
+     // console.log(listItem)
+ 
+     // todo_item.appendChild(listItem)
+ 
+     const todoItem = document.createElement('div')
+     todoItem.setAttribute('class', 'todo_item')
+     todoItem.setAttribute('id', `${idCount}`)
+ 
+     todoItem.innerHTML += `<p class="text">${inputElem.value}</p>
+ 
+             <button class="del_btn" onclick="deleteTodo(${idCount})">Delete</button>
+             <button class="edit_btn"  onclick="editTodo(${idCount})">Edit</button>`
+ 
+     todoList.appendChild(todoItem)
+     inputElem.value = ''
+     idCount++;
+ }
+ 
+ function editTodo(id) {
+     const inputElem = document.querySelector('#input_todo')
+ 
+     const todoItem = document.getElementById(id)
+ 
+     todoItem.innerHTML = `<p class="text">${inputElem.value}</p>
+ 
+             <button class="del_btn" onclick="deleteTodo(${id})">Delete</button>
+             <button class="edit_btn"  onclick="editTodo(${id})">Edit</button>`
+ 
+ 
+     inputElem.value = ''
+ }
+ function deleteTodo(id) {
+     const todoItem = document.getElementById(id)
+     todoItem.remove()
+ }
+              
+    </script>
+ </html>
